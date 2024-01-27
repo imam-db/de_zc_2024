@@ -12,17 +12,17 @@ Run the command to get information on Docker
 
 ```docker --help```
 
-![Docker Help](./images/dockerhelp.PNG)
+![Docker Help](./images/docker_help.PNG)
 
 Now run the command to get help on the "docker build" command:
 
 ```docker build --help```
 
-![Docker Build Help](./images/dockerbuildhelp.PNG)
+![Docker Build Help](./images/docker_build_help.PNG)
 
 Do the same for "docker run".
 
-![Docker Run Help](./images/dockerrunhelp1.PNG)
+![Docker Run Help](./images/docker_run_help.PNG)
 
 Which tag has the following text? - *Automatically remove the container when it exits* 
 
@@ -31,7 +31,7 @@ Which tag has the following text? - *Automatically remove the container when it 
 - `--rmc`
 - `--rm` **
 
-![Docker Run Help Options](./images/dockerrunhelp_options.PNG)
+![Docker Run Help Options](./images/docker_run_help_options.PNG)
 
 
 ## Question 2. Understanding docker first run 
@@ -41,11 +41,12 @@ Now check the python modules that are installed ( use ```pip list``` ).
 
 What is version of the package *wheel* ?
 
-- 0.42.0
+- 0.42.0 **
 - 1.0.0
 - 23.0.1
 - 58.1.0
 
+![Docker Run Python 3.9](./images/docker_run_python.PNG)
 
 # Prepare Postgres
 
