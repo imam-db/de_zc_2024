@@ -71,9 +71,21 @@ Tip: started and finished on 2019-09-18.
 Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in the format timestamp (date and hour+min+sec) and not in date.
 
 - 15767
-- 15612
+- 15612 **
 - 15859
 - 89009
+
+```sql
+SELECT COUNT(*) AS total_trips
+FROM public.tripdata AS td
+WHERE td.lpep_pickup_datetime::date = '2019-09-18' 
+	AND td.lpep_dropoff_datetime::date = '2019-09-18';
+```
+
+| total_trips |
+|-------------|
+| 15612       |
+
 
 ## Question 4. Largest trip for each day
 
@@ -82,9 +94,21 @@ Use the pick up time for your calculations.
 
 - 2019-09-18
 - 2019-09-16
-- 2019-09-26
+- 2019-09-26 **
 - 2019-09-21
 
+```sql
+SELECT td.lpep_pickup_datetime::date AS date_trip,
+     MAX(trip_distance) AS largest_distance
+FROM public.tripdata AS td
+GROUP BY td.lpep_pickup_datetime::date
+ORDER BY largest_distance DESC
+LIMIT 1;
+```
+
+| date_trip  | largest_distance |
+|------------|------------------|
+| 2019-09-26 | 341.64           |
 
 ## Question 5. Three biggest pick up Boroughs
 
@@ -92,10 +116,28 @@ Consider lpep_pickup_datetime in '2019-09-18' and ignoring Borough has Unknown
 
 Which were the 3 pick up Boroughs that had a sum of total_amount superior to 50000?
  
-- "Brooklyn" "Manhattan" "Queens"
+- "Brooklyn" "Manhattan" "Queens" **
 - "Bronx" "Brooklyn" "Manhattan"
 - "Bronx" "Manhattan" "Queens" 
 - "Brooklyn" "Queens" "Staten Island"
+
+```sql
+SELECT tz."Borough",
+	SUM(td.total_amount) AS total_amount
+FROM public.tripdata AS td
+INNER JOIN public.taxizone AS tz
+    ON td."PULocationID" = tz."LocationID"
+WHERE td.lpep_pickup_datetime::date = '2019-09-18'
+    AND tz."Borough" <> 'Unknown'
+GROUP BY tz."Borough"
+HAVING SUM(td.total_amount) > 50000;
+```
+
+| Borough   | total_amount      |
+|-----------|-------------------|
+| Brooklyn  | 96333.23999999979 |
+| Manhattan | 92271.30000000069 |
+| Queens    | 78671.71000000018 |
 
 
 ## Question 6. Largest tip
@@ -107,10 +149,26 @@ Note: it's not a typo, it's `tip` , not `trip`
 
 - Central Park
 - Jamaica
-- JFK Airport
+- JFK Airport **
 - Long Island City/Queens Plaza
 
+```sql
+SELECT tzdo."Zone",
+	td.tip_amount AS tip_amount
+FROM public.tripdata AS td
+INNER JOIN public.taxizone AS tzpu
+ON td."PULocationID" = tzpu."LocationID"
+INNER JOIN public.taxizone AS tzdo
+ON td."DOLocationID" = tzdo."LocationID"
+WHERE td.lpep_pickup_datetime::date BETWEEN '2019-09-01' AND '2019-09-30'
+AND tzpu."Zone" = 'Astoria'
+ORDER BY td.tip_amount DESC
+LIMIT 1;
+```
 
+| Zone        | tip_amount |
+|-------------|------------|
+| JFK Airport | 62.31      |
 
 ## Terraform
 
