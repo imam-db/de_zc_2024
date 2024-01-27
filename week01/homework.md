@@ -12,18 +12,26 @@ Run the command to get information on Docker
 
 ```docker --help```
 
+![Docker Help](./images/dockerhelp.PNG)
+
 Now run the command to get help on the "docker build" command:
 
 ```docker build --help```
 
+![Docker Build Help](./images/dockerbuildhelp.PNG)
+
 Do the same for "docker run".
+
+![Docker Run Help](./images/dockerrunhelp1.PNG)
 
 Which tag has the following text? - *Automatically remove the container when it exits* 
 
 - `--delete`
 - `--rc`
 - `--rmc`
-- `--rm`
+- `--rm` **
+
+![Docker Run Help Options](./images/dockerrunhelp_options.PNG)
 
 
 ## Question 2. Understanding docker first run 
