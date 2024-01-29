@@ -190,11 +190,3 @@ terraform apply
 ```
 
 Paste the output of this command into the homework submission form.
-
-
-## Submitting the solutions
-
-* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/hw01
-* You can submit your homework multiple times. In this case, only the last submission will be used. 
-
-Deadline: 29 January, 23:00 CET
