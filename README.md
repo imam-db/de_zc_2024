@@ -4,4 +4,8 @@
 
 - [Homework](./week01/homework.md)
 
+## Week 02 : Workflow Orchestration
+
+- [Homework](./week02/homework.md)
+
 
