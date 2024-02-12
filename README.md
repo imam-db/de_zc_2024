@@ -8,4 +8,9 @@
 
 - [Homework](./week02/homework.md)
 
+## Week 03 : Data Warehouse
+
+- [Homework](./week03/homework.md)
+- [SQL](./week03/homework.sql)
+
 
