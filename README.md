@@ -13,4 +13,9 @@
 - [Homework](./week03/homework.md)
 - [SQL](./week03/homework.sql)
 
+## Workshops : Data ingestion with dlt
+
+- [Homework](./workshops01/dlt.md)
+- [Notebook](./workshops01/Homework_data_talks_club_data_extraction_and_ingestion_dlt.ipynb)
+
 
