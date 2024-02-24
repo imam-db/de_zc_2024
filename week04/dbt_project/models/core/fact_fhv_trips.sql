@@ -24,7 +24,8 @@ SELECT f.dispatching_base_num,
     f.pickup_datetime, 
     f.dropoff_datetime, 
     f.sr_flag, 
-    f.affiliated_base_number
+    f.affiliated_base_number,
+    'FHV' as service_type
 FROM fhv_tripdata AS f
 INNER JOIN dim_zones AS pickup_zone
 ON f.pickup_locationid = pickup_zone.locationid
