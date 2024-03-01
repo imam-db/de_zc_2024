@@ -18,4 +18,8 @@
 - [Homework](./workshops01/dlt.md)
 - [Notebook](./workshops01/Homework_data_talks_club_data_extraction_and_ingestion_dlt.ipynb)
 
+## Week 04 : Data Analytics
+
+- [Homework](./week04/homework.md)
+
 
