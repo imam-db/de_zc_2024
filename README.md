@@ -22,4 +22,8 @@
 
 - [Homework](./week04/homework.md)
 
+## Week 05 : Batch
+
+- [Homweokr](./week05/homework.md)
+
 
